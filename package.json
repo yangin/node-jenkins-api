@@ -2,11 +2,10 @@
   "name": "jenkins-api",
   "version": "0.3.1",
   "description": "Jenkins API written in Node.js",
-  "author": "Shawn Jansepar <shawnjan@gmail.com>",
-  "contributors": [
-    "Jakub Podlaha <j.podlaha@gmail.com> (https://github.com/kub1x)"
-  ],
+  "author": "yangin <15055154122@gmail.com>",
+  "contributors": [],
   "license": "MIT",
+  "home": "https://github.com/yangin/node-jenkins-api",
   "keywords": [
     "github",
     "jenkins"
