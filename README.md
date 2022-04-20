@@ -1,5 +1,6 @@
 nodejs-jenkins-api
 =================
+
 <p align="center">
   <a href="https://npmjs.org/package/jenkins-api">
     <img src="https://img.shields.io/npm/v/jenkins-api.svg" alt="NPM Version">
@@ -14,6 +15,8 @@ nodejs-jenkins-api
     <img src="https://img.shields.io/github/issues/jansepar/node-jenkins-api.svg" alt="Github Issues">
   </a>
 </p>
+
+this forked from [node-jenkins](https://github.com/jansepar/node-jenkins-api)
 
 ## Install
 
@@ -46,10 +49,10 @@ var jenkins = jenkinsapi.init(jenkinsUrl.href);
 
 If you need additional request parameters you can add them as explained in 'optional' section.
 
-
 ### Builds
 
 #### build
+
 ```javascript
 jenkins.build('job-in-jenkins', (optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -58,6 +61,7 @@ jenkins.build('job-in-jenkins', (optional){token: 'jenkins-token', ...}, functio
 ```
 
 #### build_with_params
+
 ```javascript
 jenkins.build_with_params('job-in-jenkins', (optional){depth: 1, <param>:<value>, token: 'jenkins-token',...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -66,6 +70,7 @@ jenkins.build_with_params('job-in-jenkins', (optional){depth: 1, <param>:<value>
 ```
 
 #### stop build
+
 ```javascript
 jenkins.stop_build('job-in-jenkins', 'build-number', (optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -74,6 +79,7 @@ jenkins.stop_build('job-in-jenkins', 'build-number', (optional){token: 'jenkins-
 ```
 
 #### console output
+
 ```javascript
 jenkins.console_output('job-in-jenkins', 'buildname', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -82,6 +88,7 @@ jenkins.console_output('job-in-jenkins', 'buildname', (optional) {depth: 1, <par
 ```
 
 #### build info
+
 ```javascript
 jenkins.build_info('job-in-jenkins', 'build-number', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -90,6 +97,7 @@ jenkins.build_info('job-in-jenkins', 'build-number', (optional) {depth: 1, <para
 ```
 
 #### last build info
+
 ```javascript
 jenkins.last_build_info('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -98,6 +106,7 @@ jenkins.last_build_info('job-in-jenkins', (optional) {depth: 1, <param>:<value>,
 ```
 
 #### last completed build info
+
 ```javascript
 jenkins.last_completed_build_info('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -106,6 +115,7 @@ jenkins.last_completed_build_info('job-in-jenkins', (optional) {depth: 1, <param
 ```
 
 #### all builds
+
 ```javascript
 jenkins.all_builds('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -114,6 +124,7 @@ jenkins.all_builds('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}
 ```
 
 #### test result/report
+
 ```javascript
 jenkins.test_result('job-in-jenkins', 'build-number', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -122,6 +133,7 @@ jenkins.test_result('job-in-jenkins', 'build-number', (optional) {depth: 1, <par
 ```
 
 #### last build report - OBSOLET use `last_build_info`
+
 ```javascript
 // jenkins.last_build_report('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
 //   if (err){ return console.log(err); }
@@ -130,6 +142,7 @@ jenkins.test_result('job-in-jenkins', 'build-number', (optional) {depth: 1, <par
 ```
 
 #### delete build data for job
+
 ```javascript
 jenkins.delete_build('job-in-jenkins', 'build-number', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -137,10 +150,10 @@ jenkins.delete_build('job-in-jenkins', 'build-number', (optional) {depth: 1, <pa
 });
 ```
 
-
 ### Jobs
 
 #### all jobs
+
 ```javascript
 jenkins.all_jobs((optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -149,6 +162,7 @@ jenkins.all_jobs((optional){token: 'jenkins-token', ...}, function(err, data) {
 ```
 
 #### get config xml
+
 ```javascript
 jenkins.get_config_xml('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -157,6 +171,7 @@ jenkins.get_config_xml('job-in-jenkins', (optional) {depth: 1, <param>:<value>, 
 ```
 
 ### update existing job configuration
+
 ```javascript
 jenkins.update_config('job-to-update'
                 ,function(config) {
@@ -173,6 +188,7 @@ jenkins.update_config('job-to-update'
 ```
 
 #### update job
+
 ```javascript
 jenkins.update_job('job-to-update', xmlConfigString, (optional){token: 'jenkins-token', ...}, function(err, data) {
   // if no error, job was copied
@@ -182,6 +198,7 @@ jenkins.update_job('job-to-update', xmlConfigString, (optional){token: 'jenkins-
 ```
 
 #### job info
+
 ```javascript
 jenkins.job_info('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -190,6 +207,7 @@ jenkins.job_info('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, 
 ```
 
 #### create job
+
 ```javascript
 jenkins.create_job('job-in-jenkins', xmlConfigString, (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -198,6 +216,7 @@ jenkins.create_job('job-in-jenkins', xmlConfigString, (optional) {depth: 1, <par
 ```
 
 #### copy job
+
 ```javascript
 jenkins.copy_job('job-to-copy'
                 ,'new-job-title'
@@ -215,6 +234,7 @@ jenkins.copy_job('job-to-copy'
 ```
 
 #### delete job
+
 ```javascript
 jenkins.delete_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -223,6 +243,7 @@ jenkins.delete_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}
 ```
 
 #### enable job
+
 ```javascript
 jenkins.enable_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -231,6 +252,7 @@ jenkins.enable_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}
 ```
 
 #### disable job
+
 ```javascript
 jenkins.disable_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -239,6 +261,7 @@ jenkins.disable_job('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...
 ```
 
 #### last success
+
 ```javascript
 jenkins.last_success('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -247,6 +270,7 @@ jenkins.last_success('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ..
 ```
 
 #### last result
+
 ```javascript
 jenkins.last_result('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -254,10 +278,10 @@ jenkins.last_result('job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...
 });
 ```
 
-
 ### Queue
 
 #### get all queued items
+
 ```javascript
 jenkins.queue((optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -266,6 +290,7 @@ jenkins.queue((optional){token: 'jenkins-token', ...}, function(err, data) {
 ```
 
 #### get one queued item
+
 ```javascript
 jenkins.queue_item('queue-item-number', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -274,6 +299,7 @@ jenkins.queue_item('queue-item-number', (optional) {depth: 1, <param>:<value>, .
 ```
 
 #### cancel queued item
+
 ```javascript
 jenkins.cancel_item('queue-item-number', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -282,6 +308,7 @@ jenkins.cancel_item('queue-item-number', (optional) {depth: 1, <param>:<value>, 
 ```
 
 #### get all jenkins computers (aka workers)
+
 ```javascript
 jenkins.computers((optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -289,10 +316,10 @@ jenkins.computers((optional){token: 'jenkins-token', ...}, function(err, data) {
 });
 ```
 
-
 ### Views
 
 #### get all views
+
 ```javascript
 jenkins.all_views((optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
       if (err){ return console.log(err); }
@@ -301,6 +328,7 @@ jenkins.all_views((optional) {depth: 1, <param>:<value>, ...}, function(err, dat
 ```
 
 #### create view
+
 ```javascript
 jenkins.create_view('new-view-name', (optional)viewMode = 'hudson.model.ListView', (optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -309,6 +337,7 @@ jenkins.create_view('new-view-name', (optional)viewMode = 'hudson.model.ListView
 ```
 
 #### view info
+
 ```javascript
 jenkins.create_view('view-name', (optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -317,6 +346,7 @@ jenkins.create_view('view-name', (optional){token: 'jenkins-token', ...}, functi
 ```
 
 #### update view
+
 ```javascript
 var viewConfig = {
             name: "view-in-jenkins",
@@ -335,6 +365,7 @@ jenkins.update_view('view-in-jenkins', viewConfig, (optional){token: 'jenkins-to
 ```
 
 #### delete view
+
 ```javascript
 jenkins.delete_view('view-in-jenkins', (optional){token: 'jenkins-token', ...}, function(err, data) {
   if (err){ return console.log(err); }
@@ -343,6 +374,7 @@ jenkins.delete_view('view-in-jenkins', (optional){token: 'jenkins-token', ...}, 
 ```
 
 #### add job to view
+
 ```javascript
 jenkins.add_job_to_view('view-in-jenkins', 'job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
       if (err){ return console.log(err); }
@@ -351,6 +383,7 @@ jenkins.add_job_to_view('view-in-jenkins', 'job-in-jenkins', (optional) {depth: 
 ```
 
 #### remove job from view
+
 ```javascript
 jenkins.remove_job_from_view('view-in-jenkins', 'job-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
       if (err){ return console.log(err); }
@@ -359,6 +392,7 @@ jenkins.remove_job_from_view('view-in-jenkins', 'job-in-jenkins', (optional) {de
 ```
 
 #### get all jobs in view
+
 ```javascript
 jenkins.all_jobs_in_view('view-in-jenkins', (optional) {depth: 1, <param>:<value>, ...}, function(err, data) {
       if (err){ return console.log(err); }
@@ -366,10 +400,10 @@ jenkins.all_jobs_in_view('view-in-jenkins', (optional) {depth: 1, <param>:<value
 });
 ```
 
-
 ### Plugins
 
 #### get all installed plugins
+
 ```javascript
 jenkins.all_installed_plugins((optional){token: 'jenkins-token', ...}, function(err, data){
     if (err){ return console.log(err); }
@@ -378,6 +412,7 @@ jenkins.all_installed_plugins((optional){token: 'jenkins-token', ...}, function(
 ```
 
 #### install a plugin
+
 ```javascript
 // var plugin = 'copyartifact@1.3.8';
 var plugin = 'copyartifact@current';
@@ -386,10 +421,9 @@ jenkins.install_plugin(plugin, (optional){token: 'jenkins-token', ...}, function
     console.log(data)
 });
 ```
+
 NOTE: It will report successful even if the plugin is already installed.
 NOTE: Prevent Cross Site Request Forgery exploits need be disabled in Configure Global Security.
-
-
 
 ## Default configuration
 
@@ -407,10 +441,8 @@ Futhermore, you can set your remote job token for authentication (as well as any
 var jenkins = jenkinsapi.init("http://jenkins.yoursite.com", {request: {strictSSL: false}}, {token: '<job_token_here>'});
 ```
 
-Since node-jenkins-api uses [request/request](https://github.com/request/request) as HTTP client, please refer to the documentation for available options. Default values can be found in the source code (search for "default"). 
-
+Since node-jenkins-api uses [request/request](https://github.com/request/request) as HTTP client, please refer to the documentation for available options. Default values can be found in the source code (search for "default").
 
 ## Notes
 
 Modeled after the [Python Jenkins API](https://github.com/txels/autojenkins)
-
